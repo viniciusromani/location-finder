@@ -5,7 +5,7 @@ The app architecture, project and code organization, file structure and comments
 
 ### Acceptance Criteria:
 
-1. The app should support iOS 7+. The look and feel is the system's default. PICTURE 1.1 for iOS 7.
+1. The app should support iOS 8+. The look and feel is the system's default. PICTURE 1.1 for iOS 8.
 1. Text field on the top of the screen as shown in the PICTURE 1.1.
 1. Tapping search button makes the search through the call to the Google Maps API.
 1. The UI must be responsive while searching through the API call.
@@ -41,6 +41,7 @@ Screenshot | Description
 ### Notes
 
 * This assessment must be delivered within 2 days.
+* Objective-C language is prefered, but it's up to you choose between Objective-C and Swift.
 * You can use whatever third party library you want to accomplish these requirements.
 * You must provide a COMMENTS.txt (plain text) or a COMMENTS.md (Markdown) file at the root of your repository, explaining:
     * Main architecture decisions you've made and a quick explanation of why.
