@@ -3,7 +3,7 @@
 We need you to create an app that allows users to make searches for locations and present the results in a list, allowing them to be presented in a map view inside the app.  
 The app architecture, project and code organization, file structure and comments will be evaluated.
 
-**Optionally** you can send us an iOS challenge that you've done before for any other company. This project should be in Objective-C or Swift 3+ and acomplish those requirements below:
+**Optionally** you can send us an iOS challenge that you've done before for any other company. This project should be in Objective-C or Swift 3+ and accomplish those requirements below:
 
  - Two or more screens;
  - REST API requests;
