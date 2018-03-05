@@ -3,9 +3,18 @@
 We need you to create an app that allows users to make searches for locations and present the results in a list, allowing them to be presented in a map view inside the app.  
 The app architecture, project and code organization, file structure and comments will be evaluated.
 
+**Optionally** you can send us an iOS challenge that you've done before for any other company. This project should be in Objective-C or Swift 3+ and accomplish those requirements below:
+
+ - Two or more screens;
+ - REST API requests;
+ - JSON parsing;
+ - `UICollectionView` or `UITableView` implementation;
+ - Unit tests;
+ - Provide a `COMMENT` file mentioned in [Notes](#notes)
+
 ### Acceptance Criteria:
 
-1. The app should support iOS 8+. The look and feel is the system's default. PICTURE 1.1 for iOS 8.
+1. The app should support iOS 9+. The look and feel is the system's default. PICTURE 1.1 for iOS 9.
 1. Text field on the top of the screen as shown in the PICTURE 1.1.
 1. Tapping search button makes the search through the call to the Google Maps API.
 1. The UI must be responsive while searching through the API call.
@@ -41,7 +50,7 @@ Screenshot | Description
 ### Notes
 
 * This assessment must be delivered within 2 days.
-* Objective-C language is prefered, but it's up to you choose between Objective-C and Swift.
+* Objective-C language is prefered, but it's up to you choose between Objective-C or Swift 3+.
 * You can use whatever third party library you want to accomplish these requirements.
 * You must provide a COMMENTS.txt (plain text) or a COMMENTS.md (Markdown) file at the root of your repository, explaining:
     * Main architecture decisions you've made and a quick explanation of why.
