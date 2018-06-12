@@ -31,15 +31,6 @@ This project should be in Objective-C or Swift 4+ and accomplish those requireme
     * **This is not applicable to the "Display All on Map" option**.
 1. Provide unit tests for models and view controllers, using the XCTest framework.
 
-### Sample Screenshots
-
-Screenshot | Description
------------|-------------
-![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/one_item.png "PICTURE 1.1") | PICTURE 1.1: Main view when containing only one result.
-![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/many_items.png "PICTURE 1.2") | PICTURE 1.2: Main view when containing multiple results.
-![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/mapview.png "PICTURE 2.1") | PICTURE 2.1: Map view when displayed with a selected item. Please, make sure to add a "Save" or "Delete" button as required by ACs 12 and 13.
-![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/mapview_all.png "PICTURE 2.2") | PICTURE 2.2: How the app map view should look like when displayed from "Display All on Map" option from the results list.
-
 ### Technical Details:
 
 * **Documentation:** [Google Maps API](https://developers.google.com/maps/documentation/geocoding/)
@@ -66,6 +57,15 @@ Screenshot | Description
 1. You must fork this repository into a private repository on your own account and push your code in there.
 1. Once finished, you must give the user **ac-recruitment** read permission on your repository so that you can be evaluated. Then, please contact back your recruiter and he/she will get an engineer to evaluate your test.
 1. After you are evaluated, the recruiter will remove your read permission from the original repository.
+
+### Sample Screenshots
+
+Screenshot | Description
+-----------|-------------
+![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/one_item.png "PICTURE 1.1") | PICTURE 1.1: Main view when containing only one result.
+![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/many_items.png "PICTURE 1.2") | PICTURE 1.2: Main view when containing multiple results.
+![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/mapview.png "PICTURE 2.1") | PICTURE 2.1: Map view when displayed with a selected item. Please, make sure to add a "Save" or "Delete" button as required by ACs 12 and 13.
+![Alt text](https://bitbucket.org/ac-recruitment/ios-challenge/raw/master/screenshots/mapview_all.png "PICTURE 2.2") | PICTURE 2.2: How the app map view should look like when displayed from "Display All on Map" option from the results list.
 
 Thank you,  
 The AvenueCode Recruiting Team
