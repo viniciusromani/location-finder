@@ -9,8 +9,8 @@
 import Foundation
 import Swinject
 
-struct MapConfigurator {
-    static func configureMapScene(with container: Container) {
+struct SearchPlaceConfigurator {
+    static func configureSearchPlaceScene(with container: Container) {
         container.storyboardInitCompleted(SearchPlaceViewController.self) { (resolver, controller) in
             let presenter = SearchPlacePresenter()
             let router = SearchPlaceRouter()

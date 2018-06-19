@@ -62,7 +62,8 @@ extension SearchPlaceViewController: SearchPlaceViewProtocol {
 
 extension SearchPlaceViewController: PlacesAdapterViewProtocol {
     func didSelect(place placeViewModel: PlaceViewModel) {
-        print("selected cell")
+        presenter.storeSelectedPlace(placeViewModel)
+        router.navigateToMap()
     }
 }
 

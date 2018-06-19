@@ -12,7 +12,7 @@ import UIKit
 protocol SearchPlaceRouterProtocol: class {
     var viewController: SearchPlaceViewController! { get set }
     
-    func navigateToHistory()
+    func navigateToMap()
 }
 
 class SearchPlaceRouter: SearchPlaceRouterProtocol {
@@ -25,7 +25,7 @@ class SearchPlaceRouter: SearchPlaceRouterProtocol {
     
     var viewController: SearchPlaceViewController!
     
-    func navigateToHistory() {
+    func navigateToMap() {
         viewController.performSegue(withIdentifier: navigateToMapIdentifier, sender: nil)
     }
 }
@@ -46,6 +46,6 @@ extension SearchPlaceViewController {
         }
         
         let mapViewController = mapScene.destination
-//        historyViewController.presenter.matches = self.presenter.matches
+        mapViewController.presenter.selectedPlace = self.presenter.selectedPlace
     }
 }

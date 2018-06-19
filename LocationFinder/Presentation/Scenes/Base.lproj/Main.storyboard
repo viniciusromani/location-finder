@@ -53,7 +53,7 @@
         <!--All Results-->
         <scene sceneID="ZO8-zG-OQl">
             <objects>
-                <viewController id="cXV-cx-SXX" sceneMemberID="viewController">
+                <viewController id="cXV-cx-SXX" customClass="MapScreenViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebj-90-Z7b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,6 +72,9 @@
                         <viewLayoutGuide key="safeArea" id="EXq-5d-ICl"/>
                     </view>
                     <navigationItem key="navigationItem" title="All Results" id="4Ee-W5-ENL"/>
+                    <connections>
+                        <outlet property="mapView" destination="46t-kI-EXu" id="Bi2-cH-q9p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eW-Az-aAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -62,12 +62,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `SearchPlaceViewController`, and contains static references to 1 segues.
     struct searchPlaceViewController {
       /// Segue identifier `showMap`.
-      static let showMap: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SearchPlaceViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showMap")
+      static let showMap: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SearchPlaceViewController, MapScreenViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showMap")
       
       /// Optionally returns a typed version of segue `showMap`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func showMap(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SearchPlaceViewController, UIKit.UIViewController>? {
+      static func showMap(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SearchPlaceViewController, MapScreenViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.searchPlaceViewController.showMap, segue: segue)
       }
       
