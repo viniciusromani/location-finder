@@ -7,7 +7,11 @@
 //
 
 import Foundation
+import MapKit
 
 struct PlaceViewModel {
     let address: String
+    let location: CLLocation
+    let latitude: String
+    let longitude: String
 }

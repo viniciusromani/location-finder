@@ -13,5 +13,8 @@ extension PlaceViewModel: MappableViewModel {
     
     init(mapping model: PlaceModel) {
         address = model.address
+        location = model.location
+        latitude = "\(String(format: "%.05f", model.location.coordinate.latitude))"
+        longitude = "\(String(format: "%.05f", model.location.coordinate.longitude))"
     }
 }

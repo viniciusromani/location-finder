@@ -14,6 +14,9 @@ import UIKit
 protocol MapScreenViewProtocol: class {
     var presenter: MapScreenPresenterProtocol! { get set }
     var router: MapScreenRouterProtocol! { get set }
+    
+    func display(places placesViewModel: [PlaceViewModel])
+    func display(selectedPlace place: PlaceViewModel)
 }
 
 class MapScreenViewController: UIViewController {
@@ -23,59 +26,35 @@ class MapScreenViewController: UIViewController {
     var presenter: MapScreenPresenterProtocol!
     var router: MapScreenRouterProtocol!
     
+    // MapView Adapter
+    
+    lazy var adapter = PlacesMapViewAdapter(mapView: mapView)
+    
     // IBOutlets
     
     @IBOutlet weak var mapView: MKMapView!
     
-    let regionRadius: CLLocationDistance = 1000
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.delegate = self
-        
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        centerMapOnLocation(location: initialLocation)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444)
-        mapView.addAnnotation(annotation)
-        
-    }
-}
-
-extension MapScreenViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            //return nil so map view draws "blue dot" for standard user location
-            return nil
-        }
-        
-        let reuseId = "pin"
-        
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            pinView!.animatesDrop = true
-        }
-        else {
-            pinView!.annotation = annotation
-        }
-        
-        return pinView
+        presenter.retrievePlaces()
+        presenter.retrieveSelectedPlace()
     }
 }
 
 extension MapScreenViewController: MapScreenViewProtocol {
     
-}
-
-extension MapScreenViewController {
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+    func display(places placesViewModel: [PlaceViewModel]) {
+        adapter.setDataSet(placesViewModel)
+    }
+    
+    func display(selectedPlace place: PlaceViewModel) {
+        adapter.centerOnLocation(place.location)
     }
 }
+
+extension MapScreenViewController: PlacesAdapterMapViewProtocol {
+    
+}
+
+

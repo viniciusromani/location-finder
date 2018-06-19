@@ -8,14 +8,17 @@
 
 import Foundation
 import RxSwift
+import MapKit
 
 extension PlaceModel: MappableModel {
     typealias Entity = PlaceEntity
     
     init(mapping entity: PlaceEntity) throws {
         address = entity.address
-        latitude = entity.latitude
-        longitude = entity.longitude
+        let latitude = CLLocationDegrees(entity.latitude)
+        let longitude = CLLocationDegrees(entity.longitude)
+        let entityLocation = CLLocation(latitude: latitude, longitude: longitude)
+        location = entityLocation
     }
 }
 

@@ -25,7 +25,7 @@ class SearchPlaceViewController: UIViewController {
     
     // TableView Adapter
     
-    lazy var adapter = PlacesTableViewAdapter.init(tableView: placesTableView, and: self)
+    lazy var adapter = PlacesTableViewAdapter(tableView: placesTableView, and: self)
     
     // IBOutlets
     

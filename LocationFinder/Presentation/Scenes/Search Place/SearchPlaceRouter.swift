@@ -46,6 +46,7 @@ extension SearchPlaceViewController {
         }
         
         let mapViewController = mapScene.destination
+        mapViewController.presenter.places = self.presenter.places
         mapViewController.presenter.selectedPlace = self.presenter.selectedPlace
     }
 }

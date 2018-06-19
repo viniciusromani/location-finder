@@ -55,6 +55,7 @@
 		A1F1862D20D9574A00D917D8 /* MapScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1862C20D9574A00D917D8 /* MapScreenPresenter.swift */; };
 		A1F1862F20D9577A00D917D8 /* MapScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1862E20D9577A00D917D8 /* MapScreenRouter.swift */; };
 		A1F1863120D957B800D917D8 /* MapScreenConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1863020D957B800D917D8 /* MapScreenConfigurator.swift */; };
+		A1F1863620D99EAC00D917D8 /* PlacesMapViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1863520D99EAC00D917D8 /* PlacesMapViewAdapter.swift */; };
 		F36F9566C9A7589BAF0A97EA /* Pods_LocationFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937277D6780614D0306CB859 /* Pods_LocationFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		A1F1862C20D9574A00D917D8 /* MapScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenPresenter.swift; sourceTree = "<group>"; };
 		A1F1862E20D9577A00D917D8 /* MapScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenRouter.swift; sourceTree = "<group>"; };
 		A1F1863020D957B800D917D8 /* MapScreenConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenConfigurator.swift; sourceTree = "<group>"; };
+		A1F1863520D99EAC00D917D8 /* PlacesMapViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesMapViewAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -518,12 +520,21 @@
 		A1F1861B20D94B9900D917D8 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				A1F1863220D99E5D00D917D8 /* MapView */,
 				A1F1862A20D956ED00D917D8 /* MapScreenViewController.swift */,
 				A1F1862C20D9574A00D917D8 /* MapScreenPresenter.swift */,
 				A1F1862E20D9577A00D917D8 /* MapScreenRouter.swift */,
 				A1F1863020D957B800D917D8 /* MapScreenConfigurator.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		A1F1863220D99E5D00D917D8 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				A1F1863520D99EAC00D917D8 /* PlacesMapViewAdapter.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -748,6 +759,7 @@
 				A167328F20D8C5F300279692 /* MapperError.swift in Sources */,
 				A1F185E120D92A2E00D917D8 /* PlaceModel+Mappable.swift in Sources */,
 				A1F185FD20D9402F00D917D8 /* PlacesTableViewAdapter.swift in Sources */,
+				A1F1863620D99EAC00D917D8 /* PlacesMapViewAdapter.swift in Sources */,
 				A1F185F520D93D4400D917D8 /* SearchPlaceViewController.swift in Sources */,
 				A167328720D8C40C00279692 /* NetworkSettings.swift in Sources */,
 				A1F1862D20D9574A00D917D8 /* MapScreenPresenter.swift in Sources */,
