@@ -13,5 +13,6 @@ struct SceneDependencyInjection {
     
     static func registerScenes(with container: Container) {
         SearchPlaceConfigurator.configureSearchPlaceScene(with: container)
+        MapConfigurator.configureMapScene(with: container)
     }
 }

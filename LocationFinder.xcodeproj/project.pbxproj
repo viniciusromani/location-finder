@@ -50,6 +50,10 @@
 		A1F1861620D947B500D917D8 /* UseCaseDependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1861520D947B500D917D8 /* UseCaseDependencyInjection.swift */; };
 		A1F1861820D9489000D917D8 /* SceneDependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1861720D9489000D917D8 /* SceneDependencyInjection.swift */; };
 		A1F1861A20D948D900D917D8 /* SwinjectStoryboard+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1861920D948D900D917D8 /* SwinjectStoryboard+Setup.swift */; };
+		A1F1861D20D94BDE00D917D8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1861C20D94BDE00D917D8 /* MapViewController.swift */; };
+		A1F1861F20D94BE900D917D8 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1861E20D94BE900D917D8 /* MapPresenter.swift */; };
+		A1F1862120D94BF200D917D8 /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1862020D94BF200D917D8 /* MapRouter.swift */; };
+		A1F1862320D94BFB00D917D8 /* MapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F1862220D94BFB00D917D8 /* MapConfigurator.swift */; };
 		F36F9566C9A7589BAF0A97EA /* Pods_LocationFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937277D6780614D0306CB859 /* Pods_LocationFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +120,10 @@
 		A1F1861520D947B500D917D8 /* UseCaseDependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseDependencyInjection.swift; sourceTree = "<group>"; };
 		A1F1861720D9489000D917D8 /* SceneDependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDependencyInjection.swift; sourceTree = "<group>"; };
 		A1F1861920D948D900D917D8 /* SwinjectStoryboard+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Setup.swift"; sourceTree = "<group>"; };
+		A1F1861C20D94BDE00D917D8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A1F1861E20D94BE900D917D8 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		A1F1862020D94BF200D917D8 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		A1F1862220D94BFB00D917D8 /* MapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F185EE20D93BC400D917D8 /* Search Place */,
+				A1F1861B20D94B9900D917D8 /* Map */,
 				A1DACFD820D8256800301418 /* Main.storyboard */,
 			);
 			path = Scenes;
@@ -498,6 +507,17 @@
 				A1F1861920D948D900D917D8 /* SwinjectStoryboard+Setup.swift */,
 			);
 			path = "Dependency Injection";
+			sourceTree = "<group>";
+		};
+		A1F1861B20D94B9900D917D8 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A1F1861C20D94BDE00D917D8 /* MapViewController.swift */,
+				A1F1861E20D94BE900D917D8 /* MapPresenter.swift */,
+				A1F1862020D94BF200D917D8 /* MapRouter.swift */,
+				A1F1862220D94BFB00D917D8 /* MapConfigurator.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -690,11 +710,13 @@
 			files = (
 				A1F1860B20D943DD00D917D8 /* MappableViewModel.swift in Sources */,
 				A167329720D8C74B00279692 /* MappableEntity.swift in Sources */,
+				A1F1861F20D94BE900D917D8 /* MapPresenter.swift in Sources */,
 				A1F1860020D940B500D917D8 /* PlaceViewModel.swift in Sources */,
 				A1F185F720D93D7D00D917D8 /* SearchPlacePresenter.swift in Sources */,
 				A1F185DB20D929D600D917D8 /* MappableModel.swift in Sources */,
 				A167329A20D8C77500279692 /* GenericEntityMapper.swift in Sources */,
 				A167329D20D8C7C600279692 /* PlaceEntity+MappableEntity.swift in Sources */,
+				A1F1861D20D94BDE00D917D8 /* MapViewController.swift in Sources */,
 				A1F1860E20D9440800D917D8 /* GenericViewModelMapper.swift in Sources */,
 				A1F185E820D93AE300D917D8 /* UIViewController+NavigationBar.swift in Sources */,
 				A167328D20D8C5DB00279692 /* JSONError.swift in Sources */,
@@ -703,6 +725,7 @@
 				A1F185ED20D93B2C00D917D8 /* DefaultNavigationBarTheme.swift in Sources */,
 				A167329120D8C64800279692 /* ErrorCatcher.swift in Sources */,
 				A1F1860820D942F900D917D8 /* PlaceTableViewCell.swift in Sources */,
+				A1F1862120D94BF200D917D8 /* MapRouter.swift in Sources */,
 				A167328420D8C3CC00279692 /* LocationFinderAPI.swift in Sources */,
 				A1F185F220D93C1100D917D8 /* TableViewAdapter.swift in Sources */,
 				A1F1861120D9446000D917D8 /* PlaceViewModel+Mappable.swift in Sources */,
@@ -720,6 +743,7 @@
 				A1F185E120D92A2E00D917D8 /* PlaceModel+Mappable.swift in Sources */,
 				A1F185FD20D9402F00D917D8 /* PlacesTableViewAdapter.swift in Sources */,
 				A1F185F520D93D4400D917D8 /* SearchPlaceViewController.swift in Sources */,
+				A1F1862320D94BFB00D917D8 /* MapConfigurator.swift in Sources */,
 				A167328720D8C40C00279692 /* NetworkSettings.swift in Sources */,
 				A1F1861420D9479400D917D8 /* RepositoryDependencyInjection.swift in Sources */,
 				A1F1861A20D948D900D917D8 /* SwinjectStoryboard+Setup.swift in Sources */,
