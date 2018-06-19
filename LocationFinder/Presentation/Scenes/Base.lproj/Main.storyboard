@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="98.50074962518741"/>
         </scene>
-        <!--View Controller-->
+        <!--All Results-->
         <scene sceneID="ZO8-zG-OQl">
             <objects>
                 <viewController id="cXV-cx-SXX" sceneMemberID="viewController">
@@ -71,6 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EXq-5d-ICl"/>
                     </view>
+                    <navigationItem key="navigationItem" title="All Results" id="4Ee-W5-ENL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eW-Az-aAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

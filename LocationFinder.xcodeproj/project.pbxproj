@@ -124,6 +124,9 @@
 		A1F1861E20D94BE900D917D8 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		A1F1862020D94BF200D917D8 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
 		A1F1862220D94BFB00D917D8 /* MapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapConfigurator.swift; sourceTree = "<group>"; };
+		A1F1862420D94D7000D917D8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		A1F1862520D94D7000D917D8 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A1F1862720D94DA500D917D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -775,6 +778,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A1DACFD920D8256800301418 /* Base */,
+				A1F1862420D94D7000D917D8 /* pt */,
+				A1F1862720D94DA500D917D8 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -783,6 +788,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A1DACFDE20D8256B00301418 /* Base */,
+				A1F1862520D94D7000D917D8 /* pt */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -794,6 +800,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -854,6 +861,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

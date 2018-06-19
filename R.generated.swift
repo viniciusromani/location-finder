@@ -97,8 +97,41 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 0 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 2 localization tables.
   struct string {
+    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
+    struct launchScreen {
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.main` struct is generated, and contains static references to 2 localization keys.
+    struct main {
+      /// pt translation: Procure no Google Maps
+      /// 
+      /// Locales: pt, en
+      static let dxsvUwEPlaceholder = Rswift.StringResource(key: "8DX-SV-uwE.placeholder", tableName: "Main", bundle: R.hostingBundle, locales: ["pt", "en"], comment: nil)
+      /// pt translation: Todos os resultados
+      /// 
+      /// Locales: pt, en
+      static let eeW5ENLTitle = Rswift.StringResource(key: "4Ee-W5-ENL.title", tableName: "Main", bundle: R.hostingBundle, locales: ["pt", "en"], comment: nil)
+      
+      /// pt translation: Procure no Google Maps
+      /// 
+      /// Locales: pt, en
+      static func dxsvUwEPlaceholder(_: Void = ()) -> String {
+        return NSLocalizedString("8DX-SV-uwE.placeholder", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// pt translation: Todos os resultados
+      /// 
+      /// Locales: pt, en
+      static func eeW5ENLTitle(_: Void = ()) -> String {
+        return NSLocalizedString("4Ee-W5-ENL.title", tableName: "Main", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
