@@ -7,3 +7,5 @@
 */
 
 "display-all" = "Mostrar todos no mapa";
+
+"empty-state-message_list-screen" = "Use a barra de busca para procurar um lugar no Google Maps";

@@ -16,7 +16,7 @@ protocol SearchPlaceViewProtocol: class {
     func display(viewModel placesViewModel: [[PlaceViewModel]])
 }
 
-class SearchPlaceViewController: UIViewController {
+class SearchPlaceViewController: UIViewController, ControllableView {
     
     // Protocol conformance
     
@@ -37,7 +37,7 @@ class SearchPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.fetchPlaces(with: "Springfield")
+        showEmptyState(withMessage: R.string.localizable.emptyStateMessage_listScreen(), at: placesTableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
