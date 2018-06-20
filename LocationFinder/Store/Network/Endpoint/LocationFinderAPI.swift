@@ -40,7 +40,7 @@ extension LocationFinderAPI: TargetType {
         switch self {
         case .fetchPlace(let place):
             return .requestParameters(parameters: ["address": place, "sensor": false],
-                                      encoding: URLEncoding.queryString)
+                                      encoding: URLEncoding.default)
         }
     }
     
@@ -55,7 +55,7 @@ extension LocationFinderAPI {
     private var environmentBaseURL: String {
         let environment = NetworkSettings.environment
         switch environment {
-        case .production: return "http://maps.googleapis.com/"
+        case .production: return "https://maps.googleapis.com/"
         }
     }
 }

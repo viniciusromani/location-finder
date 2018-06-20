@@ -27,10 +27,10 @@ extension ObservableType where E == Response {
     
     func mapEntities<Entity: MappableEntity>(_ type: Entity.Type) -> Observable<[Entity]> {
         let mappedEntities = flatMap { response -> Observable<[Entity]> in
-            guard let entities = try? JSONDecoder().decode([Entity].self, from: response.data) else {
+            guard let entities = try? JSONDecoder().decode([String: [Entity]].self, from: response.data) else {
                 return Observable.error(MapperError.cannotMapToEntity)
             }
-            return Observable.just(entities)
+            return Observable.just(entities["results"]!)
         }
         return mappedEntities
     }

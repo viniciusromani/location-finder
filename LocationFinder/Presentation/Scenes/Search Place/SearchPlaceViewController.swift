@@ -37,7 +37,7 @@ class SearchPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.fetchPlaces(with: "XIT")
+        presenter.fetchPlaces(with: "Springfield")
     }
     
     override func viewWillAppear(_ animated: Bool) {

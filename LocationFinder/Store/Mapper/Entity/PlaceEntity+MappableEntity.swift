@@ -7,10 +7,24 @@
 //
 
 import Foundation
+import Moya
+import RxSwift
+
+struct RawResponse: Decodable {
+    let places: [PlaceEntity]
+    
+    enum CodingKeys: String, CodingKey {
+        case results
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        places = try values.decode([PlaceEntity].self, forKey: .results)
+    }
+}
 
 extension PlaceEntity: MappableEntity {
     enum CodingKeys: String, CodingKey {
-        case results = "results"
         case geometry = "geometry"
         case location = "location"
         
@@ -21,12 +35,25 @@ extension PlaceEntity: MappableEntity {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let results = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .results)
-        address = try results.decode(String.self, forKey: .address)
+        address = try values.decode(String.self, forKey: .address)
         
-        let geometry = try results.nestedContainer(keyedBy: CodingKeys.self, forKey: .geometry)
+        let geometry = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .geometry)
         let location = try geometry.nestedContainer(keyedBy: CodingKeys.self, forKey: .location)
         latitude = try location.decode(Float.self, forKey: .latitude)
         longitude = try location.decode(Float.self, forKey: .longitude)
     }
 }
+
+extension ObservableType where E == Response {
+    
+    func mapPlaces() -> Observable<[PlaceEntity]> {
+        let mappedEntities = flatMap { response -> Observable<[PlaceEntity]> in
+            guard let results = try? JSONDecoder().decode(RawResponse.self, from: response.data) else {
+                return Observable.error(MapperError.cannotMapToEntity)
+            }
+            return Observable.just(results.places)
+        }
+        return mappedEntities
+    }
+}
+
