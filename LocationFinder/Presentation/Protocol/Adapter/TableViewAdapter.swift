@@ -17,7 +17,7 @@ typealias TableViewProtocol = UITableViewDelegate & UITableViewDataSource
 
 protocol TableViewAdapter: class {
     associatedtype ModelType
-    var dataSet: [ModelType] { get set }
+    var dataSet: [[ModelType]] { get set }
     var tableView: UITableView { get }
     func registerCell()
 }
@@ -28,8 +28,7 @@ extension TableViewAdapter where Self: TableViewProtocol {
     
     // MARK: - Variables
     
-    var numberOfSection: Int { return 1 }
-    var numberOfRows: Int { return dataSet.count }
+    var numberOfSection: Int { return dataSet.count }
     
     // MARK: - Helpers
     
@@ -41,13 +40,18 @@ extension TableViewAdapter where Self: TableViewProtocol {
         registerCell()
     }
     
-    func setDataSet(_ newDataSet: [ModelType]) {
+    func numberOfRows(in section: Int) -> Int {
+        return dataSet[section].count
+    }
+    
+    func setDataSet(_ newDataSet: [[ModelType]]) {
         dataSet = newDataSet
         tableView.reloadData()
     }
     
     func model(for indexPath: IndexPath) -> ModelType {
-        return dataSet[indexPath.row]
+        let data = dataSet[indexPath.section]
+        return data[indexPath.row]
     }
     
     func isLastSection(_ indexPath: IndexPath) -> Bool {

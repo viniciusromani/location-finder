@@ -15,7 +15,7 @@ protocol PlacesAdapterViewProtocol {
 }
 
 final class PlacesTableViewAdapter: NSObject {
-    var dataSet: [PlaceViewModel] = []
+    var dataSet: [[PlaceViewModel]] = [[]]
     var tableView: UITableView
     var viewDelegate: PlacesAdapterViewProtocol?
     
@@ -31,36 +31,30 @@ final class PlacesTableViewAdapter: NSObject {
 extension PlacesTableViewAdapter: TableViewProtocol {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.numberOfSection + 1
+        return self.numberOfSection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard section == 0 else {
-            return self.numberOfRows
-        }
-        return 1
+        return self.numberOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.section == 0 else {
-            return dequeuePlacesCell(with: indexPath)
-        }
-        
-        return dequeueAllPlacesCell(with: indexPath)
+        return dequeuePlacesCell(with: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.section == 0 else {
-            tableView.deselectRow(at: indexPath, animated: true)
-            viewDelegate?.didSelect(place: model(for: indexPath))
+        if indexPath.section == 0, dataSet.count > 1 {
+            viewDelegate?.didSelectAll()
             return
         }
         
-        viewDelegate?.didSelectAll()
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewDelegate?.didSelect(place: model(for: indexPath))
     }
 }
 
 extension PlacesTableViewAdapter: TableViewAdapter {
+    
     typealias ModelType = PlaceViewModel
     
     func registerCell() {
@@ -78,14 +72,4 @@ extension PlacesTableViewAdapter {
         cell.configure(with: model(for: indexPath))
         return cell
     }
-    
-    private func dequeueAllPlacesCell(with indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = R.reuseIdentifier.placeTableViewCell
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) else {
-            return UITableViewCell()
-        }
-        cell.configure(with: R.string.localizable.displayAll())
-        return cell
-    }
 }
-

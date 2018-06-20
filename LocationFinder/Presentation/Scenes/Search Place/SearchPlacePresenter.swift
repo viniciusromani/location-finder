@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import MapKit
 
 protocol SearchPlacePresenterProtocol: class {
     var view: SearchPlaceViewProtocol! { get set }
@@ -42,7 +43,17 @@ class SearchPlacePresenter: SearchPlacePresenterProtocol {
             guard let strongSelf = self else { return }
             let placesViewModel = PlaceViewModel.array(mapping: places)
             strongSelf.places = placesViewModel
-            strongSelf.view.display(viewModel: placesViewModel)
+            
+            guard placesViewModel.count > 1 else {
+                strongSelf.view.display(viewModel: [placesViewModel])
+                return
+            }
+            
+            let displayAll = PlaceViewModel(address: R.string.localizable.displayAll(),
+                                            location: CLLocation(),
+                                            latitude: "",
+                                            longitude: "")
+            strongSelf.view.display(viewModel: [[displayAll], placesViewModel])
         }, onError: { (error) in
             
             print("error")

@@ -13,7 +13,7 @@ protocol SearchPlaceViewProtocol: class {
     var presenter: SearchPlacePresenterProtocol! { get set }
     var router: SearchPlaceRouterProtocol! { get set }
     
-    func display(viewModel placesViewModel: [PlaceViewModel])
+    func display(viewModel placesViewModel: [[PlaceViewModel]])
 }
 
 class SearchPlaceViewController: UIViewController {
@@ -55,7 +55,7 @@ class SearchPlaceViewController: UIViewController {
 
 extension SearchPlaceViewController: SearchPlaceViewProtocol {
     
-    func display(viewModel placesViewModel: [PlaceViewModel]) {
+    func display(viewModel placesViewModel: [[PlaceViewModel]]) {
         adapter.setDataSet(placesViewModel)
     }
 }
