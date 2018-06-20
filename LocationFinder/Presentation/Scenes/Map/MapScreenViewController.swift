@@ -50,6 +50,7 @@ extension MapScreenViewController: MapScreenViewProtocol {
     
     func display(selectedPlace place: PlaceViewModel) {
         adapter.centerOnLocation(place.location)
+        adapter.showCallout(for: place.location)
     }
 }
 

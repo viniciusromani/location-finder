@@ -55,7 +55,6 @@ extension PlacesMapViewAdapter: MapViewAdapter {
             addAnnotation(at: firstPlace.location,
                           with: firstPlace.address,
                           and: "(\(firstPlace.latitude) \(firstPlace.longitude))")
-            centerOnLocation(firstPlace.location)
             return
         }
         

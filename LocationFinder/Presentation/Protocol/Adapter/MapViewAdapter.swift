@@ -44,4 +44,18 @@ extension MapViewAdapter where Self: MapViewProtocol {
                                                                   distance, distance)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    func showCallout(for location: CLLocation) {
+        
+        for annotation in mapView.annotations {
+            if annotation.coordinate == location.coordinate {
+                mapView.selectAnnotation(annotation, animated: true)
+                break
+            }
+        }
+    }
+    
+    func centerForAll() {
+        mapView.showAnnotations(mapView.annotations, animated: true)
+    }
 }
