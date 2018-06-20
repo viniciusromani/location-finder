@@ -31,7 +31,11 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
     }
     
     func retrieveSelectedPlace() {
-        guard let selected = selectedPlace else { return }
+        guard let selected = selectedPlace else {
+            self.view.displayAllPlaces()
+            return
+        }
+        
         view.display(selectedPlace: selected)
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 protocol PlacesAdapterViewProtocol {
+    func didSelectAll()
     func didSelect(place placeViewModel: PlaceViewModel)
 }
 
@@ -30,20 +31,32 @@ final class PlacesTableViewAdapter: NSObject {
 extension PlacesTableViewAdapter: TableViewProtocol {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.numberOfSection
+        return self.numberOfSection + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.numberOfRows
+        guard section == 0 else {
+            return self.numberOfRows
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return dequeuePlacesCell(with: indexPath)
+        guard indexPath.section == 0 else {
+            return dequeuePlacesCell(with: indexPath)
+        }
+        
+        return dequeueAllPlacesCell(with: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        viewDelegate?.didSelect(place: model(for: indexPath))
+        guard indexPath.section == 0 else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            viewDelegate?.didSelect(place: model(for: indexPath))
+            return
+        }
+        
+        viewDelegate?.didSelectAll()
     }
 }
 
@@ -63,6 +76,15 @@ extension PlacesTableViewAdapter {
             return UITableViewCell()
         }
         cell.configure(with: model(for: indexPath))
+        return cell
+    }
+    
+    private func dequeueAllPlacesCell(with indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = R.reuseIdentifier.placeTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) else {
+            return UITableViewCell()
+        }
+        cell.configure(with: R.string.localizable.displayAll())
         return cell
     }
 }

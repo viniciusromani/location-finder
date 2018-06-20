@@ -65,5 +65,10 @@ extension SearchPlaceViewController: PlacesAdapterViewProtocol {
         presenter.storeSelectedPlace(placeViewModel)
         router.navigateToMap()
     }
+    
+    func didSelectAll() {
+        presenter.cleanSelectedPlace()
+        router.navigateToMap()
+    }
 }
 

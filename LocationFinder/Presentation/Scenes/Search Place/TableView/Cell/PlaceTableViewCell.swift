@@ -16,4 +16,8 @@ class PlaceTableViewCell: UITableViewCell {
     func configure(with viewModel: PlaceViewModel) {
         addressLabel.text = viewModel.address
     }
+    
+    func configure(with string: String) {
+        addressLabel.text = string
+    }
 }

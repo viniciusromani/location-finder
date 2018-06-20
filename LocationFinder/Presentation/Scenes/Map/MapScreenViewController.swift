@@ -17,6 +17,7 @@ protocol MapScreenViewProtocol: class {
     
     func display(places placesViewModel: [PlaceViewModel])
     func display(selectedPlace place: PlaceViewModel)
+    func displayAllPlaces()
 }
 
 class MapScreenViewController: UIViewController {
@@ -51,6 +52,10 @@ extension MapScreenViewController: MapScreenViewProtocol {
     func display(selectedPlace place: PlaceViewModel) {
         adapter.centerOnLocation(place.location)
         adapter.showCallout(for: place.location)
+    }
+    
+    func displayAllPlaces() {
+        adapter.centerForAll()
     }
 }
 

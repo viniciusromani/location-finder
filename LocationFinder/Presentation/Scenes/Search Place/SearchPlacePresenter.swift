@@ -18,6 +18,7 @@ protocol SearchPlacePresenterProtocol: class {
     
     func fetchPlaces(with placeName: String?)
     func storeSelectedPlace(_ place: PlaceViewModel)
+    func cleanSelectedPlace()
 }
 
 class SearchPlacePresenter: SearchPlacePresenterProtocol {
@@ -50,5 +51,9 @@ class SearchPlacePresenter: SearchPlacePresenterProtocol {
     
     func storeSelectedPlace(_ place: PlaceViewModel) {
         selectedPlace = place
+    }
+    
+    func cleanSelectedPlace() {
+        selectedPlace = nil
     }
 }
