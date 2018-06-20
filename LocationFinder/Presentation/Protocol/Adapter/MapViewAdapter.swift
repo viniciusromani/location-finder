@@ -39,6 +39,8 @@ extension MapViewAdapter where Self: MapViewProtocol {
     }
     
     func centerOnLocation(_ location: CLLocation, using radius: Float = 1500000) {
+        mapView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0)
+        
         let distance = CLLocationDistance(radius)
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   distance, distance)
@@ -46,7 +48,6 @@ extension MapViewAdapter where Self: MapViewProtocol {
     }
     
     func showCallout(for location: CLLocation) {
-        
         for annotation in mapView.annotations {
             if annotation.coordinate == location.coordinate {
                 mapView.selectAnnotation(annotation, animated: true)
@@ -56,6 +57,7 @@ extension MapViewAdapter where Self: MapViewProtocol {
     }
     
     func centerForAll() {
+        mapView.layoutMargins = UIEdgeInsetsMake(0, 20, 0, 20)
         mapView.showAnnotations(mapView.annotations, animated: true)
     }
 }

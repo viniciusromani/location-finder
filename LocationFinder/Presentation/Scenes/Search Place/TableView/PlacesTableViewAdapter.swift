@@ -43,12 +43,13 @@ extension PlacesTableViewAdapter: TableViewProtocol {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if indexPath.section == 0, dataSet.count > 1 {
             viewDelegate?.didSelectAll()
             return
         }
         
-        tableView.deselectRow(at: indexPath, animated: true)
         viewDelegate?.didSelect(place: model(for: indexPath))
     }
 }
