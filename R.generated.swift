@@ -104,7 +104,7 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
     struct localizable {
       /// en translation: Cancel
       /// 
@@ -130,6 +130,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, pt
       static let noResults = Rswift.StringResource(key: "no-results", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Place Deleted
+      /// 
+      /// Locales: en, pt
+      static let placeDeletedToast = Rswift.StringResource(key: "place-deleted-toast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Place Saved
+      /// 
+      /// Locales: en, pt
+      static let placeSavedToast = Rswift.StringResource(key: "place-saved-toast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Place not Deleted
+      /// 
+      /// Locales: en, pt
+      static let placeNotdeletedToast = Rswift.StringResource(key: "place-notdeleted-toast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Place not Saved
+      /// 
+      /// Locales: en, pt
+      static let placeNotsavedToast = Rswift.StringResource(key: "place-notsaved-toast", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
       /// en translation: Please check your internet connection
       /// 
       /// Locales: en, pt
@@ -179,6 +195,34 @@ struct R: Rswift.Validatable {
       /// Locales: en, pt
       static func noResults(_: Void = ()) -> String {
         return NSLocalizedString("no-results", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Place Deleted
+      /// 
+      /// Locales: en, pt
+      static func placeDeletedToast(_: Void = ()) -> String {
+        return NSLocalizedString("place-deleted-toast", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Place Saved
+      /// 
+      /// Locales: en, pt
+      static func placeSavedToast(_: Void = ()) -> String {
+        return NSLocalizedString("place-saved-toast", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Place not Deleted
+      /// 
+      /// Locales: en, pt
+      static func placeNotdeletedToast(_: Void = ()) -> String {
+        return NSLocalizedString("place-notdeleted-toast", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Place not Saved
+      /// 
+      /// Locales: en, pt
+      static func placeNotsavedToast(_: Void = ()) -> String {
+        return NSLocalizedString("place-notsaved-toast", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Please check your internet connection

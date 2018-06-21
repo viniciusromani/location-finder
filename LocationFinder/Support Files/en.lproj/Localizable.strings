@@ -19,3 +19,8 @@
 
 "alert-delete-title" = "Delete \"%@\" ?";
 "alert-delete-message" = "Deleting this place will also remove it from the local database.";
+
+"place-saved-toast" = "Place Saved";
+"place-notsaved-toast" = "Place not Saved";
+"place-deleted-toast" = "Place Deleted";
+"place-notdeleted-toast" = "Place not Deleted";

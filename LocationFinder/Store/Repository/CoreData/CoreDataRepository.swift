@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CoreDataRepository {
-    func save(placeEntity place: PlaceEntity)
+    func save(placeEntity place: PlaceEntity) -> Bool
     func fetchPlace(with latitude: Float, and longitude: Float) -> PlaceEntity?
-    func delete(with latitude: Float, and longitude: Float)
+    func delete(with latitude: Float, and longitude: Float) -> Bool
 }

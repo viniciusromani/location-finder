@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import MapKit
 import UIKit
+import Toast_Swift
 
 protocol MapScreenViewProtocol: class {
     var presenter: MapScreenPresenterProtocol! { get set }
@@ -21,6 +22,7 @@ protocol MapScreenViewProtocol: class {
     func hideStorageBarButton()
     func displayBarButtonState(with title: String)
     func displayDeleteConfirmationAlert(with title: String, and message: String)
+    func displayToast(with message: String)
 }
 
 class MapScreenViewController: UIViewController {
@@ -52,7 +54,6 @@ class MapScreenViewController: UIViewController {
         
         presenter.retrievePlaces()
         presenter.retrieveSelectedPlace()
-        presenter.retrieveButtonState()
     }
 }
 
@@ -93,10 +94,11 @@ extension MapScreenViewController: MapScreenViewProtocol {
         let alert = alertBuilder.build()
         present(alert, animated: true)
     }
-}
-
-extension MapScreenViewController: PlacesAdapterMapViewProtocol {
     
+    func displayToast(with message: String) {
+        view.makeToast(message)
+    }
 }
 
+extension MapScreenViewController: PlacesAdapterMapViewProtocol { }
 

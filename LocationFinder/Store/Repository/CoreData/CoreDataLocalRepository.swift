@@ -13,7 +13,7 @@ struct CoreDataLocalRepository: CoreDataRepository {
     
     var context = AppDelegate().persistentContainer.viewContext
     
-    func save(placeEntity place: PlaceEntity) {
+    func save(placeEntity place: PlaceEntity) -> Bool {
         context.mergePolicy =  NSMergeByPropertyObjectTrumpMergePolicy
         
         let newPlace = NSEntityDescription.insertNewObject(forEntityName: "Places", into: context)
@@ -23,8 +23,10 @@ struct CoreDataLocalRepository: CoreDataRepository {
         
         do {
             try context.save()
+            return true
         } catch {
             print("Failed saving")
+            return false
         }
     }
     
@@ -44,7 +46,7 @@ struct CoreDataLocalRepository: CoreDataRepository {
         }
     }
     
-    func delete(with latitude: Float, and longitude: Float) {
+    func delete(with latitude: Float, and longitude: Float) -> Bool {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Places")
         request.predicate = NSPredicate(format: "latitude == %f && longitude == %f", latitude, longitude)
         request.returnsObjectsAsFaults = false
@@ -56,8 +58,10 @@ struct CoreDataLocalRepository: CoreDataRepository {
                 }
             }
             try context.save()
+            return true
         } catch {
             print("Failed deleting")
+            return false
         }
     }
 }

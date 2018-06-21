@@ -2,6 +2,10 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
+def ui_pods
+    pod 'Toast-Swift', '~> 3.0.1'
+end
+
 def net_pods
     pod 'Moya'
     pod 'Moya/RxSwift'
@@ -18,6 +22,7 @@ target 'LocationFinder' do
   use_frameworks!
 
   # Pods for LocationFinder
+  ui_pods
   net_pods
   helper_pods
 

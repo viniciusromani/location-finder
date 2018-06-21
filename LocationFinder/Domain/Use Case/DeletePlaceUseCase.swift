@@ -13,10 +13,10 @@ struct DeletePlaceUseCase {
     
     let repository: CoreDataRepository
     
-    func deletePlace(with location: CLLocation) {
+    func deletePlace(with location: CLLocation) -> Bool {
         let latitude = Float(location.coordinate.latitude)
         let longitude = Float(location.coordinate.longitude)
         
-        repository.delete(with: latitude, and: longitude)
+        return repository.delete(with: latitude, and: longitude)
     }
 }

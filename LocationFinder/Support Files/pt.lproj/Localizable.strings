@@ -19,3 +19,8 @@
 
 "alert-delete-title" = "Excluir \"%@\" ?";
 "alert-delete-message" = "Excluir esse lugar vai removê-lo também do banco de dados local.";
+
+"place-saved-toast" = "Lugar Salvo";
+"place-notsaved-toast" = "Lugar não foi salvo";
+"place-deleted-toast" = "Lugar Excluído";
+"place-notdeleted-toast" = "Lugar não foi excluído";

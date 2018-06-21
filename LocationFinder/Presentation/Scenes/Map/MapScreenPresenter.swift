@@ -28,7 +28,6 @@ protocol MapScreenPresenterProtocol: class {
     
     func retrievePlaces()
     func retrieveSelectedPlace()
-    func retrieveButtonState()
     
     func storageButtonTouched()
     func deletePlace()
@@ -52,23 +51,14 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
     }
     
     func retrieveSelectedPlace() {
+        persistButtonState(with: selectedPlace)
+        
         guard let selected = selectedPlace else {
             self.view.displayAllPlaces()
-            self.buttonState = .none
             return
         }
         
-        persistButtonState(with: selected)
         view.display(selectedPlace: selected)
-    }
-    
-    func retrieveButtonState() {
-        guard buttonState != .none else {
-            self.view.hideStorageBarButton()
-            return
-        }
-        
-        view.displayBarButtonState(with: buttonState.rawValue)
     }
     
     func storageButtonTouched() {
@@ -81,24 +71,47 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
     
     func deletePlace() {
         guard let selected = selectedPlace else { return }
-        deleteUseCase.deletePlace(with: selected.location)
+        var message: String
+        if deleteUseCase.deletePlace(with: selected.location) {
+            message = R.string.localizable.placeDeletedToast()
+            persistButtonState(with: selected)
+        } else {
+            message = R.string.localizable.placeNotdeletedToast()
+        }
+        view.displayToast(with: message)
     }
 }
 
 extension MapScreenPresenter {
-    private func persistButtonState(with place: PlaceViewModel) {
-        guard fetchUseCase.fetchPlace(with: place.location) != nil else {
-            self.buttonState = .save
-            return
+    private func persistButtonState(with place: PlaceViewModel?) {
+        if let selected = place {
+            if fetchUseCase.fetchPlace(with: selected.location) == nil {
+                buttonState = .save
+            } else {
+                buttonState = .delete
+            }
+        } else {
+            buttonState = .none
         }
         
-        buttonState = .delete
+        switch buttonState {
+        case .none: view.hideStorageBarButton()
+        case .save, .delete: view.displayBarButtonState(with: buttonState.rawValue)
+        }
     }
     
     private func savePlace() {
         guard let selected = selectedPlace else { return }
         let placeModel = PlaceModel(address: selected.address, location: selected.location)
-        saveUseCase.save(placeModel: placeModel)
+        
+        var message: String
+        if saveUseCase.save(placeModel: placeModel) {
+            message = R.string.localizable.placeSavedToast()
+            persistButtonState(with: selected)
+        } else {
+            message = R.string.localizable.placeNotsavedToast()
+        }
+        view.displayToast(with: message)
     }
     
     private func displayDeleteConfirmationAlert() {
