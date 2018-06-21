@@ -275,7 +275,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -286,7 +286,11 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     struct _PlaceTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = PlaceTableViewCell
@@ -305,7 +309,11 @@ struct _R {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try main.validate()
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
@@ -315,11 +323,26 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType {
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
+      let mapScreenViewController = StoryboardViewControllerResource<MapScreenViewController>(identifier: "MapScreenViewController")
       let name = "Main"
+      let searchPlaceViewController = StoryboardViewControllerResource<SearchPlaceViewController>(identifier: "SearchPlaceViewController")
+      
+      func mapScreenViewController(_: Void = ()) -> MapScreenViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mapScreenViewController)
+      }
+      
+      func searchPlaceViewController(_: Void = ()) -> SearchPlaceViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: searchPlaceViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.main().mapScreenViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mapScreenViewController' could not be loaded from storyboard 'Main' as 'MapScreenViewController'.") }
+        if _R.storyboard.main().searchPlaceViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'searchPlaceViewController' could not be loaded from storyboard 'Main' as 'SearchPlaceViewController'.") }
+      }
       
       fileprivate init() {}
     }

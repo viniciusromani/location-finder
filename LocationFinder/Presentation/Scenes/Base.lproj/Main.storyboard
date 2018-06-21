@@ -13,7 +13,7 @@
         <!--Search Place View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchPlaceViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchPlaceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SearchPlaceViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
         <!--All Results-->
         <scene sceneID="ZO8-zG-OQl">
             <objects>
-                <viewController id="cXV-cx-SXX" customClass="MapScreenViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cXV-cx-SXX" customClass="MapScreenViewController" customModule="LocationFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebj-90-Z7b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

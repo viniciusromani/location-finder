@@ -37,6 +37,8 @@
 		A119744920DBF085006EC355 /* FetchCoreDataPlacesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119744820DBF085006EC355 /* FetchCoreDataPlacesUseCaseTests.swift */; };
 		A119744B20DBF12A006EC355 /* DeletePlaceUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119744A20DBF12A006EC355 /* DeletePlaceUseCaseTests.swift */; };
 		A119744E20DBF5C8006EC355 /* PlaceModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119744D20DBF5C8006EC355 /* PlaceModelMapper.swift */; };
+		A119745020DBF89E006EC355 /* DependencyInjectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119744F20DBF89E006EC355 /* DependencyInjectionTests.swift */; };
+		A119745320DBFA47006EC355 /* PlaceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119745220DBFA47006EC355 /* PlaceViewModelTests.swift */; };
 		A167328420D8C3CC00279692 /* LocationFinderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328320D8C3CC00279692 /* LocationFinderAPI.swift */; };
 		A167328720D8C40C00279692 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328620D8C40C00279692 /* NetworkSettings.swift */; };
 		A167328B20D8C5CD00279692 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328A20D8C5CD00279692 /* HTTPError.swift */; };
@@ -134,6 +136,8 @@
 		A119744820DBF085006EC355 /* FetchCoreDataPlacesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCoreDataPlacesUseCaseTests.swift; sourceTree = "<group>"; };
 		A119744A20DBF12A006EC355 /* DeletePlaceUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePlaceUseCaseTests.swift; sourceTree = "<group>"; };
 		A119744D20DBF5C8006EC355 /* PlaceModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModelMapper.swift; sourceTree = "<group>"; };
+		A119744F20DBF89E006EC355 /* DependencyInjectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionTests.swift; sourceTree = "<group>"; };
+		A119745220DBFA47006EC355 /* PlaceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModelTests.swift; sourceTree = "<group>"; };
 		A167328320D8C3CC00279692 /* LocationFinderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderAPI.swift; sourceTree = "<group>"; };
 		A167328620D8C40C00279692 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		A167328A20D8C5CD00279692 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 		A119743020DBDE05006EC355 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A119745120DBFA2A006EC355 /* Mapper */,
+				A119744F20DBF89E006EC355 /* DependencyInjectionTests.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -348,6 +354,14 @@
 			isa = PBXGroup;
 			children = (
 				A119744D20DBF5C8006EC355 /* PlaceModelMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		A119745120DBFA2A006EC355 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				A119745220DBFA47006EC355 /* PlaceViewModelTests.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -999,8 +1013,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A119745320DBFA47006EC355 /* PlaceViewModelTests.swift in Sources */,
 				A119744920DBF085006EC355 /* FetchCoreDataPlacesUseCaseTests.swift in Sources */,
 				A119744E20DBF5C8006EC355 /* PlaceModelMapper.swift in Sources */,
+				A119745020DBF89E006EC355 /* DependencyInjectionTests.swift in Sources */,
 				A119743920DBE321006EC355 /* LocationFinder.xcdatamodeld in Sources */,
 				A119744120DBE965006EC355 /* TestableEntityMapper.swift in Sources */,
 				A119744320DBEB1A006EC355 /* PlaceEntityParse.swift in Sources */,
