@@ -24,6 +24,9 @@ struct RawResponse: Decodable {
 }
 
 extension PlaceEntity: MappableEntity {
+    
+    // Decodable
+    
     enum CodingKeys: String, CodingKey {
         case geometry = "geometry"
         case location = "location"
@@ -41,6 +44,16 @@ extension PlaceEntity: MappableEntity {
         let location = try geometry.nestedContainer(keyedBy: CodingKeys.self, forKey: .location)
         latitude = try location.decode(Float.self, forKey: .latitude)
         longitude = try location.decode(Float.self, forKey: .longitude)
+    }
+    
+    // Model parsing
+    
+    typealias Model = PlaceModel
+    
+    init(mapping model: PlaceModel) throws {
+        address = model.address
+        latitude = Float(model.location.coordinate.latitude)
+        longitude = Float(model.location.coordinate.longitude)
     }
 }
 

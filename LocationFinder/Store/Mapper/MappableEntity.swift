@@ -8,4 +8,9 @@
 
 import Foundation
 
-protocol MappableEntity: Decodable { }
+protocol MappableEntity: Decodable {
+    associatedtype Model
+    
+    init(mapping model: Model) throws
+    init?(mapping model: Model?) throws
+}

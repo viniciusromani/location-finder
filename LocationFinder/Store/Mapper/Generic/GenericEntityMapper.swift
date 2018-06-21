@@ -35,3 +35,14 @@ extension ObservableType where E == Response {
         return mappedEntities
     }
 }
+
+extension MappableEntity {
+    
+    init(mapping model: Model) throws {
+        try self.init(mapping: model)
+    }
+    init?(mapping model: Model?) throws {
+        guard let mod = model else { return nil }
+        try self.init(mapping: mod)
+    }
+}

@@ -13,11 +13,11 @@ struct SavePlaceUseCase {
     let repository: CoreDataRepository
     
     func save(placeModel place: PlaceModel) -> Bool {
-        let latitude = Float(place.location.coordinate.latitude)
-        let longitude = Float(place.location.coordinate.longitude)
-        
-        let placeEntity = PlaceEntity(address: place.address, latitude: latitude, longitude: longitude)
-        
-        return repository.save(placeEntity: placeEntity)
+        do {
+            let placeEntity = try PlaceEntity(mapping: place)
+            return repository.save(placeEntity: placeEntity)
+        } catch {
+            return false
+        }
     }
 }
