@@ -44,19 +44,20 @@ class SearchPlacePresenter: SearchPlacePresenterProtocol {
             let placesViewModel = PlaceViewModel.array(mapping: places)
             strongSelf.places = placesViewModel
             
-            guard placesViewModel.count > 1 else {
-                strongSelf.view.display(viewModel: [placesViewModel])
-                return
+            strongSelf.managePlacesViewModelArray(placesViewModel)
+        }, onError: { [weak self] (error) in
+            
+            guard let strongSelf = self else { return }
+            var message: String = ""
+            switch error {
+            case HTTPError.unreachable:
+                message = R.string.localizable.connectionError()
+            default:
+                message = error.localizedDescription
             }
             
-            let displayAll = PlaceViewModel(address: R.string.localizable.displayAll(),
-                                            location: CLLocation(),
-                                            latitude: "",
-                                            longitude: "")
-            strongSelf.view.display(viewModel: [[displayAll], placesViewModel])
-        }, onError: { (error) in
+            strongSelf.view.displayEmptyState(withMessage: message)
             
-            print("error")
         }).disposed(by: disposeBag)
     }
     
@@ -68,3 +69,37 @@ class SearchPlacePresenter: SearchPlacePresenterProtocol {
         selectedPlace = nil
     }
 }
+
+extension SearchPlacePresenter {
+    private func managePlacesViewModelArray(_ placesViewModel: [PlaceViewModel]) {
+        let count = placesViewModel.count
+        
+        if count == 0 {
+            displayNoResults()
+            return
+        } else if count == 1 {
+            displayOneResult(placesViewModel)
+            return
+        } else {
+            displayMoreThanOneResult(placesViewModel)
+            return
+        }
+    }
+    
+    private func displayNoResults() {
+        view.displayEmptyState(withMessage: R.string.localizable.noResults())
+    }
+    
+    private func displayOneResult(_ placesViewModel: [PlaceViewModel]) {
+        view.display(viewModel: [placesViewModel])
+    }
+    
+    private func displayMoreThanOneResult(_ placesViewModel: [PlaceViewModel]) {
+        let displayAll = PlaceViewModel(address: R.string.localizable.displayAll(),
+                                        location: CLLocation(),
+                                        latitude: "",
+                                        longitude: "")
+        view.display(viewModel: [[displayAll], placesViewModel])
+    }
+}
+

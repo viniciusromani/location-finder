@@ -9,3 +9,7 @@
 "display-all" = "Display all on map";
 
 "empty-state-message_list-screen" = "Use the search bar to search a place on Google Maps";
+
+"connection-error" = "Please check your internet connection";
+
+"no-results" = "No Results";

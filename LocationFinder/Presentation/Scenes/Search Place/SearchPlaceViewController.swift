@@ -14,6 +14,7 @@ protocol SearchPlaceViewProtocol: class {
     var router: SearchPlaceRouterProtocol! { get set }
     
     func display(viewModel placesViewModel: [[PlaceViewModel]])
+    func displayEmptyState(withMessage message: String)
 }
 
 class SearchPlaceViewController: UIViewController, LoadableView, ControllableView {
@@ -65,8 +66,13 @@ class SearchPlaceViewController: UIViewController, LoadableView, ControllableVie
 extension SearchPlaceViewController: SearchPlaceViewProtocol {
     
     func display(viewModel placesViewModel: [[PlaceViewModel]]) {
-        hideActivityIndicatorView()
+        prepareToShowResults()
         adapter.setDataSet(placesViewModel)
+    }
+    
+    func displayEmptyState(withMessage message: String) {
+        prepareToShowResults()
+        showEmptyState(withMessage: message, at: placesTableView)
     }
 }
 
@@ -104,5 +110,11 @@ extension SearchPlaceViewController {
         hideEmptyState()
         transparencyView.isHidden = true
         adapter.clearData()
+    }
+    
+    private func prepareToShowResults() {
+        adapter.clearData()
+        hideActivityIndicatorView()
+        hideEmptyState()
     }
 }

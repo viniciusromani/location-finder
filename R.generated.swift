@@ -104,12 +104,20 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
     struct localizable {
       /// en translation: Display all on map
       /// 
       /// Locales: en, pt
       static let displayAll = Rswift.StringResource(key: "display-all", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: No Results
+      /// 
+      /// Locales: en, pt
+      static let noResults = Rswift.StringResource(key: "no-results", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Please check your internet connection
+      /// 
+      /// Locales: en, pt
+      static let connectionError = Rswift.StringResource(key: "connection-error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
       /// en translation: Use the search bar to search a place on Google Maps
       /// 
       /// Locales: en, pt
@@ -120,6 +128,20 @@ struct R: Rswift.Validatable {
       /// Locales: en, pt
       static func displayAll(_: Void = ()) -> String {
         return NSLocalizedString("display-all", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: No Results
+      /// 
+      /// Locales: en, pt
+      static func noResults(_: Void = ()) -> String {
+        return NSLocalizedString("no-results", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Please check your internet connection
+      /// 
+      /// Locales: en, pt
+      static func connectionError(_: Void = ()) -> String {
+        return NSLocalizedString("connection-error", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Use the search bar to search a place on Google Maps
