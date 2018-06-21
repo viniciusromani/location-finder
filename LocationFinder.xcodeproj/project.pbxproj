@@ -18,6 +18,12 @@
 		A11973E820DA7DA5006EC355 /* ControllableView+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11973E720DA7DA5006EC355 /* ControllableView+UIViewController.swift */; };
 		A11973EB20DB4711006EC355 /* CustomView+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11973EA20DB4711006EC355 /* CustomView+UIViewController.swift */; };
 		A11973ED20DB5AAD006EC355 /* SystemAlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11973EC20DB5AAD006EC355 /* SystemAlertBuilder.swift */; };
+		A119741F20DB6CAA006EC355 /* LocationFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A119741D20DB6CAA006EC355 /* LocationFinder.xcdatamodeld */; };
+		A119742320DB6F9B006EC355 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742220DB6F9B006EC355 /* CoreDataRepository.swift */; };
+		A119742520DB6FFC006EC355 /* CoreDataLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742420DB6FFC006EC355 /* CoreDataLocalRepository.swift */; };
+		A119742720DB71BD006EC355 /* SavePlaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742620DB71BD006EC355 /* SavePlaceUseCase.swift */; };
+		A119742920DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742820DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift */; };
+		A119742B20DB7BAA006EC355 /* PlaceEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742A20DB7BAA006EC355 /* PlaceEntity+CoreData.swift */; };
 		A167328420D8C3CC00279692 /* LocationFinderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328320D8C3CC00279692 /* LocationFinderAPI.swift */; };
 		A167328720D8C40C00279692 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328620D8C40C00279692 /* NetworkSettings.swift */; };
 		A167328B20D8C5CD00279692 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328A20D8C5CD00279692 /* HTTPError.swift */; };
@@ -98,6 +104,12 @@
 		A11973E720DA7DA5006EC355 /* ControllableView+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllableView+UIViewController.swift"; sourceTree = "<group>"; };
 		A11973EA20DB4711006EC355 /* CustomView+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomView+UIViewController.swift"; sourceTree = "<group>"; };
 		A11973EC20DB5AAD006EC355 /* SystemAlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertBuilder.swift; sourceTree = "<group>"; };
+		A119741E20DB6CAA006EC355 /* LocationFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationFinder.xcdatamodel; sourceTree = "<group>"; };
+		A119742220DB6F9B006EC355 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		A119742420DB6FFC006EC355 /* CoreDataLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLocalRepository.swift; sourceTree = "<group>"; };
+		A119742620DB71BD006EC355 /* SavePlaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePlaceUseCase.swift; sourceTree = "<group>"; };
+		A119742820DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCoreDataPlacesUseCase.swift; sourceTree = "<group>"; };
+		A119742A20DB7BAA006EC355 /* PlaceEntity+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceEntity+CoreData.swift"; sourceTree = "<group>"; };
 		A167328320D8C3CC00279692 /* LocationFinderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderAPI.swift; sourceTree = "<group>"; };
 		A167328620D8C40C00279692 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		A167328A20D8C5CD00279692 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -252,6 +264,15 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
+		A119742120DB6F8A006EC355 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A119742220DB6F9B006EC355 /* CoreDataRepository.swift */,
+				A119742420DB6FFC006EC355 /* CoreDataLocalRepository.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		A167328220D8C3B900279692 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				A167329C20D8C7C600279692 /* PlaceEntity+MappableEntity.swift */,
+				A119742A20DB7BAA006EC355 /* PlaceEntity+CoreData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -326,6 +348,7 @@
 		A167329E20D8C85C00279692 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A119742120DB6F8A006EC355 /* CoreData */,
 				A16732A120D8C8BD00279692 /* Google */,
 			);
 			path = Repository;
@@ -390,6 +413,7 @@
 				A1DACFE020D8256B00301418 /* Info.plist */,
 				A1F1860520D9420900D917D8 /* R.generated.swift */,
 				A1F1863E20DA0D2E00D917D8 /* Localizable.strings */,
+				A119741D20DB6CAA006EC355 /* LocationFinder.xcdatamodeld */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -430,6 +454,8 @@
 			isa = PBXGroup;
 			children = (
 				A1F185E220D92B5400D917D8 /* FetchPlacesUseCase.swift */,
+				A119742620DB71BD006EC355 /* SavePlaceUseCase.swift */,
+				A119742820DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift */,
 			);
 			path = "Use Case";
 			sourceTree = "<group>";
@@ -826,6 +852,7 @@
 				A1F185F720D93D7D00D917D8 /* SearchPlacePresenter.swift in Sources */,
 				A1F185DB20D929D600D917D8 /* MappableModel.swift in Sources */,
 				A11973E620DA7D8A006EC355 /* ControllableView.swift in Sources */,
+				A119742320DB6F9B006EC355 /* CoreDataRepository.swift in Sources */,
 				A167329A20D8C77500279692 /* GenericEntityMapper.swift in Sources */,
 				A167329D20D8C7C600279692 /* PlaceEntity+MappableEntity.swift in Sources */,
 				A1F1860E20D9440800D917D8 /* GenericViewModelMapper.swift in Sources */,
@@ -837,14 +864,18 @@
 				A167329120D8C64800279692 /* ErrorCatcher.swift in Sources */,
 				A1F1863920DA0A0300D917D8 /* CLLocationCoordinate2D+Equatable.swift in Sources */,
 				A1F1860820D942F900D917D8 /* PlaceTableViewCell.swift in Sources */,
+				A119742520DB6FFC006EC355 /* CoreDataLocalRepository.swift in Sources */,
 				A167328420D8C3CC00279692 /* LocationFinderAPI.swift in Sources */,
 				A11973D720DA7C7B006EC355 /* ActivityIndicatorView.swift in Sources */,
 				A1F185F220D93C1100D917D8 /* TableViewAdapter.swift in Sources */,
+				A119742720DB71BD006EC355 /* SavePlaceUseCase.swift in Sources */,
 				A11973E420DA7D63006EC355 /* LoadableView+UIViewController.swift in Sources */,
 				A1F1861120D9446000D917D8 /* PlaceViewModel+Mappable.swift in Sources */,
+				A119742920DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift in Sources */,
 				A1F185D920D929A600D917D8 /* PlaceModel.swift in Sources */,
 				A1F185DE20D92A0400D917D8 /* GenericModelMapper.swift in Sources */,
 				A1F1861620D947B500D917D8 /* UseCaseDependencyInjection.swift in Sources */,
+				A119741F20DB6CAA006EC355 /* LocationFinder.xcdatamodeld in Sources */,
 				A1F185EB20D93B0F00D917D8 /* NavigationBarTheme.swift in Sources */,
 				A1F1860620D9420900D917D8 /* R.generated.swift in Sources */,
 				A1F185F920D93D9000D917D8 /* SearchPlaceConfigurator.swift in Sources */,
@@ -872,6 +903,7 @@
 				A16732A320D8C8CE00279692 /* GoogleNetworkRepository.swift in Sources */,
 				A1F1862920D9565C00D917D8 /* MapViewAdapter.swift in Sources */,
 				A11973E220DA7D46006EC355 /* LoadableView.swift in Sources */,
+				A119742B20DB7BAA006EC355 /* PlaceEntity+CoreData.swift in Sources */,
 				A11973E820DA7DA5006EC355 /* ControllableView+UIViewController.swift in Sources */,
 				A11973DB20DA7CA3006EC355 /* EmptyStateView.swift in Sources */,
 			);
@@ -1156,6 +1188,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A119741D20DB6CAA006EC355 /* LocationFinder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A119741E20DB6CAA006EC355 /* LocationFinder.xcdatamodel */,
+			);
+			currentVersion = A119741E20DB6CAA006EC355 /* LocationFinder.xcdatamodel */;
+			path = LocationFinder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A1DACFC920D8256800301418 /* Project object */;
 }

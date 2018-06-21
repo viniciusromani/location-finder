@@ -17,6 +17,9 @@ struct MapScreenConfigurator {
             
             presenter.view = controller
             
+            presenter.saveUseCase = resolver.resolve(SavePlaceUseCase.self)!
+            presenter.fetchUseCase = resolver.resolve(FetchCoreDataPlacesUseCase.self)!
+            
             router.viewController = controller
             
             controller.presenter = presenter

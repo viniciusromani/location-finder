@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 enum StorageBarButtonState: String {
     case none = "None"
@@ -17,6 +18,9 @@ enum StorageBarButtonState: String {
 protocol MapScreenPresenterProtocol: class {
     var view: MapScreenViewProtocol! { get set }
     var buttonState: StorageBarButtonState { get set }
+    
+    var saveUseCase: SavePlaceUseCase! { get set }
+    var fetchUseCase: FetchCoreDataPlacesUseCase! { get set }
     
     var places: [PlaceViewModel] { get set }
     var selectedPlace: PlaceViewModel? { get set }
@@ -34,9 +38,12 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
     // Protocol conformance
     
     var view: MapScreenViewProtocol!
-    var buttonState: StorageBarButtonState = .delete
+    var buttonState: StorageBarButtonState = .save
     var places: [PlaceViewModel] = []
     var selectedPlace: PlaceViewModel?
+    
+    var saveUseCase: SavePlaceUseCase!
+    var fetchUseCase: FetchCoreDataPlacesUseCase!
     
     func retrievePlaces() {
         view.display(places: places)
@@ -49,6 +56,7 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
             return
         }
         
+        persistButtonState(with: selected)
         view.display(selectedPlace: selected)
     }
     
@@ -75,8 +83,19 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
 }
 
 extension MapScreenPresenter {
+    private func persistButtonState(with place: PlaceViewModel) {
+        guard fetchUseCase.fetchPlace(with: place.location) != nil else {
+            self.buttonState = .save
+            return
+        }
+        
+        buttonState = .delete
+    }
+    
     private func savePlace() {
-        print("delete")
+        guard let selected = selectedPlace else { return }
+        let placeModel = PlaceModel(address: selected.address, location: selected.location)
+        saveUseCase.save(placeModel: placeModel)
     }
     
     private func displayDeleteConfirmationAlert() {

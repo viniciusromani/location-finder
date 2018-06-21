@@ -15,5 +15,9 @@ struct RepositoryDependencyInjection {
         container.register(GoogleRepository.self) { (resolver) -> GoogleRepository in
             return GoogleNetworkRepository()
         }
+        
+        container.register(CoreDataRepository.self) { (resolver) -> CoreDataRepository in
+            return CoreDataLocalRepository()
+        }
     }
 }
