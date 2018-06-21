@@ -49,6 +49,11 @@ extension TableViewAdapter where Self: TableViewProtocol {
         tableView.reloadData()
     }
     
+    func clearData() {
+        dataSet = [[]]
+        tableView.reloadData()
+    }
+    
     func model(for indexPath: IndexPath) -> ModelType {
         let data = dataSet[indexPath.section]
         return data[indexPath.row]

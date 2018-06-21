@@ -16,7 +16,7 @@ protocol SearchPlaceViewProtocol: class {
     func display(viewModel placesViewModel: [[PlaceViewModel]])
 }
 
-class SearchPlaceViewController: UIViewController, ControllableView {
+class SearchPlaceViewController: UIViewController, LoadableView, ControllableView {
     
     // Protocol conformance
     
@@ -31,6 +31,7 @@ class SearchPlaceViewController: UIViewController, ControllableView {
     
     @IBOutlet weak var placeSearchBar: UISearchBar!
     @IBOutlet weak var placesTableView: UITableView!
+    @IBOutlet weak var transparencyView: UIVisualEffectView!
     
     // View life cycle
     
@@ -38,6 +39,7 @@ class SearchPlaceViewController: UIViewController, ControllableView {
         super.viewDidLoad()
         
         showEmptyState(withMessage: R.string.localizable.emptyStateMessage_listScreen(), at: placesTableView)
+        placeSearchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +53,19 @@ class SearchPlaceViewController: UIViewController, ControllableView {
         
         showNavigationBar()
     }
+    
+    // IBActions
+    
+    @IBAction func transparencyViewTouchedUpInside(_ sender: UITapGestureRecognizer) {
+        placeSearchBar.resignFirstResponder()
+        transparencyView.isHidden = true
+    }
 }
 
 extension SearchPlaceViewController: SearchPlaceViewProtocol {
     
     func display(viewModel placesViewModel: [[PlaceViewModel]]) {
+        hideActivityIndicatorView()
         adapter.setDataSet(placesViewModel)
     }
 }
@@ -72,3 +82,27 @@ extension SearchPlaceViewController: PlacesAdapterViewProtocol {
     }
 }
 
+extension SearchPlaceViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        prepareToSearch()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        prepareToTriggerService()
+        showActivityIndicatorView(at: placesTableView)
+        presenter.fetchPlaces(with: searchBar.text)
+    }
+}
+
+extension SearchPlaceViewController {
+    private func prepareToSearch() {
+        transparencyView.isHidden = false
+    }
+    
+    private func prepareToTriggerService() {
+        placeSearchBar.resignFirstResponder()
+        hideEmptyState()
+        transparencyView.isHidden = true
+        adapter.clearData()
+    }
+}

@@ -21,20 +21,6 @@ extension ControllableView where Self: UIViewController {
     }
     
     func hideEmptyState() {
-        guard let emptyStateView = findEmptyStateView(at: view) else { return }
-        emptyStateView.removeFromSuperview()
-    }
-    
-    private func findEmptyStateView(at viewToFind: UIView) -> UIView? {
-        for subview in viewToFind.subviews {
-            let emptyStateView = subview.subviews.first { $0 is EmptyStateView } as? EmptyStateView
-            
-            if let emptyState = emptyStateView {
-                return emptyState
-            } else {
-                return findEmptyStateView(at: subview)
-            }
-        }
-        return nil
+        removeView(of: EmptyStateView.self, from: view)
     }
 }
