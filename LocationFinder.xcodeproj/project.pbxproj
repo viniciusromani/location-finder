@@ -24,6 +24,7 @@
 		A119742720DB71BD006EC355 /* SavePlaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742620DB71BD006EC355 /* SavePlaceUseCase.swift */; };
 		A119742920DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742820DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift */; };
 		A119742B20DB7BAA006EC355 /* PlaceEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742A20DB7BAA006EC355 /* PlaceEntity+CoreData.swift */; };
+		A119742D20DB7FDC006EC355 /* DeletePlaceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119742C20DB7FDC006EC355 /* DeletePlaceUseCase.swift */; };
 		A167328420D8C3CC00279692 /* LocationFinderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328320D8C3CC00279692 /* LocationFinderAPI.swift */; };
 		A167328720D8C40C00279692 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328620D8C40C00279692 /* NetworkSettings.swift */; };
 		A167328B20D8C5CD00279692 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328A20D8C5CD00279692 /* HTTPError.swift */; };
@@ -110,6 +111,7 @@
 		A119742620DB71BD006EC355 /* SavePlaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePlaceUseCase.swift; sourceTree = "<group>"; };
 		A119742820DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCoreDataPlacesUseCase.swift; sourceTree = "<group>"; };
 		A119742A20DB7BAA006EC355 /* PlaceEntity+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceEntity+CoreData.swift"; sourceTree = "<group>"; };
+		A119742C20DB7FDC006EC355 /* DeletePlaceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePlaceUseCase.swift; sourceTree = "<group>"; };
 		A167328320D8C3CC00279692 /* LocationFinderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderAPI.swift; sourceTree = "<group>"; };
 		A167328620D8C40C00279692 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		A167328A20D8C5CD00279692 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				A1F185E220D92B5400D917D8 /* FetchPlacesUseCase.swift */,
 				A119742620DB71BD006EC355 /* SavePlaceUseCase.swift */,
 				A119742820DB76A0006EC355 /* FetchCoreDataPlacesUseCase.swift */,
+				A119742C20DB7FDC006EC355 /* DeletePlaceUseCase.swift */,
 			);
 			path = "Use Case";
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				A1F1863920DA0A0300D917D8 /* CLLocationCoordinate2D+Equatable.swift in Sources */,
 				A1F1860820D942F900D917D8 /* PlaceTableViewCell.swift in Sources */,
 				A119742520DB6FFC006EC355 /* CoreDataLocalRepository.swift in Sources */,
+				A119742D20DB7FDC006EC355 /* DeletePlaceUseCase.swift in Sources */,
 				A167328420D8C3CC00279692 /* LocationFinderAPI.swift in Sources */,
 				A11973D720DA7C7B006EC355 /* ActivityIndicatorView.swift in Sources */,
 				A1F185F220D93C1100D917D8 /* TableViewAdapter.swift in Sources */,

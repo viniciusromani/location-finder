@@ -44,7 +44,20 @@ struct CoreDataLocalRepository: CoreDataRepository {
         }
     }
     
-    func delete(placeEntity place: PlaceEntity) {
-        
+    func delete(with latitude: Float, and longitude: Float) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Places")
+        request.predicate = NSPredicate(format: "latitude == %f && longitude == %f", latitude, longitude)
+        request.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(request)
+            for result in results {
+                if let managedObject = result as? NSManagedObject {
+                    context.delete(managedObject)
+                }
+            }
+            try context.save()
+        } catch {
+            print("Failed deleting")
+        }
     }
 }

@@ -23,5 +23,9 @@ struct UseCaseDependencyInjection {
         container.register(FetchCoreDataPlacesUseCase.self) { (resolver) -> FetchCoreDataPlacesUseCase in
             return FetchCoreDataPlacesUseCase(repository: resolver.resolve(CoreDataRepository.self)!)
         }
+        
+        container.register(DeletePlaceUseCase.self) { (resolver) -> DeletePlaceUseCase in
+            return DeletePlaceUseCase(repository: resolver.resolve(CoreDataRepository.self)!)
+        }
     }
 }

@@ -21,6 +21,7 @@ protocol MapScreenPresenterProtocol: class {
     
     var saveUseCase: SavePlaceUseCase! { get set }
     var fetchUseCase: FetchCoreDataPlacesUseCase! { get set }
+    var deleteUseCase: DeletePlaceUseCase! { get set }
     
     var places: [PlaceViewModel] { get set }
     var selectedPlace: PlaceViewModel? { get set }
@@ -44,6 +45,7 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
     
     var saveUseCase: SavePlaceUseCase!
     var fetchUseCase: FetchCoreDataPlacesUseCase!
+    var deleteUseCase: DeletePlaceUseCase!
     
     func retrievePlaces() {
         view.display(places: places)
@@ -78,7 +80,8 @@ class MapScreenPresenter: MapScreenPresenterProtocol {
     }
     
     func deletePlace() {
-        print("save")
+        guard let selected = selectedPlace else { return }
+        deleteUseCase.deletePlace(with: selected.location)
     }
 }
 

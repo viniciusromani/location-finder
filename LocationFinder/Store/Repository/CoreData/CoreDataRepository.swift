@@ -11,5 +11,5 @@ import Foundation
 protocol CoreDataRepository {
     func save(placeEntity place: PlaceEntity)
     func fetchPlace(with latitude: Float, and longitude: Float) -> PlaceEntity?
-    func delete(placeEntity place: PlaceEntity)
+    func delete(with latitude: Float, and longitude: Float)
 }
