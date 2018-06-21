@@ -100,9 +100,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EXq-5d-ICl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="All Results" id="4Ee-W5-ENL"/>
+                    <navigationItem key="navigationItem" title="All Results" id="4Ee-W5-ENL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="l2l-mV-JBx">
+                            <connections>
+                                <action selector="storageButtonTouchedUpInside:" destination="cXV-cx-SXX" id="Mju-e5-Lz0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="46t-kI-EXu" id="Bi2-cH-q9p"/>
+                        <outlet property="storageBarButton" destination="l2l-mV-JBx" id="fxB-XW-2hg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eW-Az-aAl" userLabel="First Responder" sceneMemberID="firstResponder"/>

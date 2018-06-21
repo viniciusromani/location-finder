@@ -13,3 +13,9 @@
 "connection-error" = "Por favor verifique sua conexão com a internet";
 
 "no-results" = "Nenhum lugar foi encontrado";
+
+"default-cancel" = "Cancelar";
+"default-delete" = "Excluir";
+
+"alert-delete-title" = "Excluir \"%@\" ?";
+"alert-delete-message" = "Excluir esse lugar vai removê-lo também do banco de dados local.";

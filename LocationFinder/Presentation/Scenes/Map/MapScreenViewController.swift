@@ -18,6 +18,9 @@ protocol MapScreenViewProtocol: class {
     func display(places placesViewModel: [PlaceViewModel])
     func display(selectedPlace place: PlaceViewModel)
     func displayAllPlaces()
+    func hideStorageBarButton()
+    func displayBarButtonState(with title: String)
+    func displayDeleteConfirmationAlert(with title: String, and message: String)
 }
 
 class MapScreenViewController: UIViewController {
@@ -34,12 +37,22 @@ class MapScreenViewController: UIViewController {
     // IBOutlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var storageBarButton: UIBarButtonItem!
+    
+    // IBActions
+    
+    @IBAction func storageButtonTouchedUpInside(_ sender: UIBarButtonItem) {
+        presenter.storageButtonTouched()
+    }
+    
+    // View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         presenter.retrievePlaces()
         presenter.retrieveSelectedPlace()
+        presenter.retrieveButtonState()
     }
 }
 
@@ -56,6 +69,29 @@ extension MapScreenViewController: MapScreenViewProtocol {
     
     func displayAllPlaces() {
         adapter.centerForAll()
+    }
+    
+    func hideStorageBarButton() {
+        hideRightBarButtonItem()
+    }
+    
+    func displayBarButtonState(with title: String) {
+        storageBarButton.title = title
+    }
+    
+    func displayDeleteConfirmationAlert(with title: String, and message: String) {
+        let cancelAction: (UIAlertAction) -> Void = { action in }
+        let deleteAction: (UIAlertAction) -> Void = { action in
+            self.presenter.deletePlace()
+        }
+        let cancelActionTuple: AlertActionTuple = (title: R.string.localizable.defaultCancel(),
+                                                   style: .cancel, handler: cancelAction)
+        let deleteActionTuple: AlertActionTuple = (title: R.string.localizable.defaultDelete(),
+                                                   style: .destructive, handler: deleteAction)
+        
+        let alertBuilder = SystemAlertBuilder().setTitle(title).setMessage(message).setActions(with: [cancelActionTuple, deleteActionTuple])
+        let alert = alertBuilder.build()
+        present(alert, animated: true)
     }
 }
 

@@ -17,6 +17,7 @@
 		A11973E620DA7D8A006EC355 /* ControllableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11973E520DA7D8A006EC355 /* ControllableView.swift */; };
 		A11973E820DA7DA5006EC355 /* ControllableView+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11973E720DA7DA5006EC355 /* ControllableView+UIViewController.swift */; };
 		A11973EB20DB4711006EC355 /* CustomView+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11973EA20DB4711006EC355 /* CustomView+UIViewController.swift */; };
+		A11973ED20DB5AAD006EC355 /* SystemAlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11973EC20DB5AAD006EC355 /* SystemAlertBuilder.swift */; };
 		A167328420D8C3CC00279692 /* LocationFinderAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328320D8C3CC00279692 /* LocationFinderAPI.swift */; };
 		A167328720D8C40C00279692 /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328620D8C40C00279692 /* NetworkSettings.swift */; };
 		A167328B20D8C5CD00279692 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A167328A20D8C5CD00279692 /* HTTPError.swift */; };
@@ -96,6 +97,7 @@
 		A11973E520DA7D8A006EC355 /* ControllableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllableView.swift; sourceTree = "<group>"; };
 		A11973E720DA7DA5006EC355 /* ControllableView+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ControllableView+UIViewController.swift"; sourceTree = "<group>"; };
 		A11973EA20DB4711006EC355 /* CustomView+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomView+UIViewController.swift"; sourceTree = "<group>"; };
+		A11973EC20DB5AAD006EC355 /* SystemAlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlertBuilder.swift; sourceTree = "<group>"; };
 		A167328320D8C3CC00279692 /* LocationFinderAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderAPI.swift; sourceTree = "<group>"; };
 		A167328620D8C40C00279692 /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
 		A167328A20D8C5CD00279692 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				A11973D620DA7C7B006EC355 /* ActivityIndicatorView.swift */,
 				A11973DA20DA7CA3006EC355 /* EmptyStateView.swift */,
+				A11973EC20DB5AAD006EC355 /* SystemAlertBuilder.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -846,6 +849,7 @@
 				A1F1860620D9420900D917D8 /* R.generated.swift in Sources */,
 				A1F185F920D93D9000D917D8 /* SearchPlaceConfigurator.swift in Sources */,
 				A1DACFD520D8256800301418 /* AppDelegate.swift in Sources */,
+				A11973ED20DB5AAD006EC355 /* SystemAlertBuilder.swift in Sources */,
 				A1F1862B20D956ED00D917D8 /* MapScreenViewController.swift in Sources */,
 				A167328B20D8C5CD00279692 /* HTTPError.swift in Sources */,
 				A11973EB20DB4711006EC355 /* CustomView+UIViewController.swift in Sources */,

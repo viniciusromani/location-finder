@@ -18,4 +18,12 @@ extension UIViewController {
     func showNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    func hideRightBarButtonItem() {
+        navigationItem.rightBarButtonItem = nil
+    }
+    
+    func showRightBarButtonItem(_ barButtonItem: UIBarButtonItem) {
+        navigationItem.setRightBarButton(barButtonItem, animated: true)
+    }
 }

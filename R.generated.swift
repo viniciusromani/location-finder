@@ -104,8 +104,24 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
     struct localizable {
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, pt
+      static let defaultCancel = Rswift.StringResource(key: "default-cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Delete
+      /// 
+      /// Locales: en, pt
+      static let defaultDelete = Rswift.StringResource(key: "default-delete", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Delete "%@" ?
+      /// 
+      /// Locales: en, pt
+      static let alertDeleteTitle = Rswift.StringResource(key: "alert-delete-title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      /// en translation: Deleting this place will also remove it from the local database.
+      /// 
+      /// Locales: en, pt
+      static let alertDeleteMessage = Rswift.StringResource(key: "alert-delete-message", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
       /// en translation: Display all on map
       /// 
       /// Locales: en, pt
@@ -122,6 +138,34 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, pt
       static let emptyStateMessage_listScreen = Rswift.StringResource(key: "empty-state-message_list-screen", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "pt"], comment: nil)
+      
+      /// en translation: Cancel
+      /// 
+      /// Locales: en, pt
+      static func defaultCancel(_: Void = ()) -> String {
+        return NSLocalizedString("default-cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Delete
+      /// 
+      /// Locales: en, pt
+      static func defaultDelete(_: Void = ()) -> String {
+        return NSLocalizedString("default-delete", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Delete "%@" ?
+      /// 
+      /// Locales: en, pt
+      static func alertDeleteTitle(_ value1: String) -> String {
+        return String(format: NSLocalizedString("alert-delete-title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Deleting this place will also remove it from the local database.
+      /// 
+      /// Locales: en, pt
+      static func alertDeleteMessage(_: Void = ()) -> String {
+        return NSLocalizedString("alert-delete-message", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Display all on map
       /// 
